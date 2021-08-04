@@ -1,0 +1,17 @@
+{
+  "id": "1B319CC3-163A-44F9-8301-00CC59EE1F86",
+  "createdDate": "2021-08-02T17:34:02.000+00:00",
+  "modifiedDate": "2021-08-02T17:34:02.000+00:00",
+  "name": "name2",
+  "displayName": "nguyen van b",
+  "failLoginCount?": 10,
+  "affectDate": "2021-08-03T09:30:40.000+00:00",
+  "expireDate": "2022-08-02T10:34:02.000+00:00",
+  "testAmount?": 0,
+  "testSelectId?": "1",
+  "userType": "WebApp",
+  "tenantId": "00000000-0000-0000-0000-000000000000",
+  "fullTextSearch": "name2nguyenvanb",
+  "lock": false,
+  "active": true
+}
