@@ -30,7 +30,7 @@ class ProfilePic extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50),
-                          side: const BorderSide(color: Colors.red))),
+                          side: const BorderSide(color: Colors.white))),
                 ),
               )),
         ],
