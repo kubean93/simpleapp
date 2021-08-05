@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:restfull_api/models/entities/user.dart';
+import 'package:restfull_api/screens/user/user_profile_screen.dart';
 import 'package:restfull_api/services/user_services.dart';
 
 class UserListView extends StatelessWidget {
@@ -29,11 +30,8 @@ class UserListView extends StatelessWidget {
             ),
           ),
           onTap: () {
-            // Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //         builder: (context) =>
-            //             AlbumDetailScreen(albumId: users[index].id)));
+            Navigator.pushNamed(context, UserProfile.route,
+                arguments: users[index]);
           },
         );
       },

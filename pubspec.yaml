@@ -38,6 +38,7 @@ dependencies:
   flutter_spinkit: "^4.1.2"
   json_to_model: ^2.3.1
   flutter_svg: ^0.22.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

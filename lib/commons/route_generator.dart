@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:restfull_api/models/entities/user.dart';
 import 'package:restfull_api/screens/HomeScreen.dart';
 import 'package:restfull_api/screens/home/login_screen.dart';
+import 'package:restfull_api/screens/user/user_detail_screen.dart';
+import 'package:restfull_api/screens/user/user_profile_screen.dart';
 import 'package:restfull_api/screens/user/user_screen.dart';
 
 const defaultRoute = '/';
@@ -9,7 +12,7 @@ const loginRoute = "/login";
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final dynamic args = settings.arguments;
     switch (settings.name) {
       //First page
       case defaultRoute:
@@ -19,11 +22,16 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (BuildContext context) => UserScreen());
       case loginRoute:
-        if (args is String) {
-          return MaterialPageRoute(
-              builder: (BuildContext context) => LoginScreen());
-        }
-        return _errorRoute();
+        return MaterialPageRoute(
+            builder: (BuildContext context) => LoginScreen());
+      case UserProfile.route:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => UserProfile(
+                  user: args,
+                ));
+      case UserProfileDetail.route:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => UserProfileDetail(user: args));
       default:
         return _errorRoute();
     }

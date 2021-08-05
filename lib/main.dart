@@ -3,6 +3,8 @@ import 'package:restfull_api/commons/route_generator.dart';
 import 'package:restfull_api/screens/home/login_screen.dart';
 import 'package:restfull_api/screens/user/user_profile_screen.dart';
 
+import 'commons/style.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -15,11 +17,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: '/',
       onGenerateRoute: RouteGenerator.generateRoute,
-      title: 'Flutter Demo',
+      title: 'VTracking v3',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: UserProfile(),
+          primarySwatch: Colors.green,
+          primaryColor: BackgrounPrimary,
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+          primaryTextTheme: TextTheme(
+            headline6: TextStyle(color: Colors.white),
+            subtitle1: TextStyle(color: Colors.white),
+            bodyText2: TextStyle(color: Colors.white),
+          )),
+      home: LoginScreen(),
     );
   }
 }

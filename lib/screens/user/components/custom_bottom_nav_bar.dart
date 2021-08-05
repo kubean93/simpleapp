@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restfull_api/commons/enums.dart';
+import 'package:restfull_api/commons/style.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({Key? key, required this.selectedMenu})
@@ -56,7 +57,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 icon: Icon(
                   Icons.person,
                   color: MenuState.profile == selectedMenu
-                      ? Colors.red
+                      ? BackgrounPrimary
                       : Colors.black38,
                   size: 30,
                 ))

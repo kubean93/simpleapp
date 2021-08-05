@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:restfull_api/models/entities/user.dart';
 import 'package:restfull_api/screens/user/components/profile_menu.dart';
 import 'package:restfull_api/screens/user/components/profile_pic.dart';
+import 'package:restfull_api/screens/user/user_detail_screen.dart';
 
 class Body extends StatelessWidget {
-  Body({Key? key}) : super(key: key);
-  Color background = Color(0xfff4f6f9);
+  Body({Key? key, required this.user}) : super(key: key);
+  final Color background = Color(0xfff4f6f9);
+  final User user;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(
+          height: 10,
+        ),
         ProfilePic(),
         SizedBox(height: 20),
         ProfileMenu(
@@ -19,7 +25,10 @@ class Body extends StatelessWidget {
             Icons.person,
             color: Colors.black38,
           ),
-          press: () {},
+          press: () {
+            Navigator.pushNamed(context, UserProfileDetail.route,
+                arguments: user);
+          },
         ),
         ProfileMenu(
           background: background,

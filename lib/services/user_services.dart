@@ -4,12 +4,12 @@ import 'package:restfull_api/commons/global.dart';
 import 'package:restfull_api/models/entities/user.dart';
 
 //fetch user by id
-Future<User> fetchUserById(http.Client client, int id) async {
+Future<User> fetchUserById(http.Client client, String id) async {
   final response = await client.get(Uri.parse('$URL_GET_USER/$id'));
   if (response.statusCode == 200) {
     return User.fromJson(jsonDecode(response.body));
   } else {
-    throw Exception('Fieled to load album');
+    throw Exception('Faild to load user');
   }
 }
 
@@ -27,6 +27,39 @@ Future<List<User>> fetchAllUser(http.Client client) async {
     } else
       return [];
   } else {
-    throw Exception('Fieled to load album');
+    throw Exception('Failed to load list users');
   }
+}
+
+//create an user
+Future<User> createUser(http.Client client, User user) async {
+  final response = await http.post(
+    Uri.parse(URL_GET_USER),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: user.toJson(),
+  );
+  if (response.statusCode == 200) {
+    return user;
+  } else {
+    throw Exception('Failed to add user');
+  }
+}
+
+//update patch an user info
+Future<bool> updateUserData(
+    http.Client client, String userId, User user) async {
+  var json = user.toJson();
+  print(Uri.parse('${URL_GET_USER}/$userId'));
+  print(jsonEncode(json));
+  final response = await client.patch(Uri.parse('${URL_GET_USER}/$userId'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(json));
+  if (response.statusCode == 200) {
+    return true;
+  }
+  return false;
 }
